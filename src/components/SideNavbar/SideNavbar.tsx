@@ -1,17 +1,18 @@
 import { Navigation, Frame } from "@shopify/polaris";
-import { HomeIcon, OrderIcon, IconSource } from "@shopify/polaris-icons";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
+import { HomeIcon, OrderIcon } from "@shopify/polaris-icons";
+import { useNavigate, useLocation } from "react-router-dom";
+import logoSpaceCowboy from "@/assets/logo-spaceCowboy.svg";
+import style from "./SideNavbar.module.scss";
 interface NavigationItem {
   url: string;
   label: string;
-  icon: IconSource;
+  icon: any;
 }
 
 const SideNavbar: React.FC = () => {
-  const [selectedPath, setSelectedPath] = useState("/");
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const navigationItems: NavigationItem[] = [
     {
@@ -19,6 +20,7 @@ const SideNavbar: React.FC = () => {
       label: "Home",
       icon: HomeIcon,
     },
+
     {
       url: "/dashboard",
       label: "Dashboard",
@@ -27,22 +29,32 @@ const SideNavbar: React.FC = () => {
   ];
 
   const handleNavigate = (path: string) => {
-    setSelectedPath(path);
     navigate(path);
   };
 
   const items = navigationItems.map(item => ({
     ...item,
-    selected: selectedPath === item.url,
+    selected: location.pathname === item.url,
     onClick: () => handleNavigate(item.url),
   }));
 
   return (
-    <Frame>
-      <Navigation location={selectedPath}>
-        <Navigation.Section items={items} />
-      </Navigation>
-    </Frame>
+    <aside className={style.sideNavbarContainer}>
+      <Frame>
+        <Navigation location={location.pathname}>
+          <div className={style.navigationContainer}>
+            <div className={style.logoWrapper}>
+              <img
+                src={logoSpaceCowboy}
+                alt="Company Logo"
+                className={style.logo}
+              />
+            </div>
+            <Navigation.Section items={items} />
+          </div>
+        </Navigation>
+      </Frame>
+    </aside>
   );
 };
 
