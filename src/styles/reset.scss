@@ -13,6 +13,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  font-family: var(--p-font-family-sans);
+  color: var(--p-color-text);
 
   @media #{$p-breakpoints-lg-down} {
     * {
@@ -26,8 +28,8 @@ body {
       height: 100dvh;
       display: grid;
       place-items: center;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: var(--p-font-size-450);
+      font-weight: var(--p-font-weight-medium);
     }
   }
 }
