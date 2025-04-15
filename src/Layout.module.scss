@@ -1,0 +1,14 @@
+@use "/node_modules/@shopify/polaris-tokens/dist/scss/styles" as *;
+
+.pageLayoutWrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  .pageLayoutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--p-breakpoints-xl);
+  }
+}

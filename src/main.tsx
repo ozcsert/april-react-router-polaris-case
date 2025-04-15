@@ -4,6 +4,7 @@ import { AppProvider } from "@shopify/polaris";
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 import enTranslations from "@shopify/polaris/locales/en.json";
+import "@shopify/polaris/build/esm/styles.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
