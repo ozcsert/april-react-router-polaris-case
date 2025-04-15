@@ -11,7 +11,6 @@ interface NavigationItem {
 
 const SideNavbar: React.FC = () => {
   const navigate = useNavigate();
-
   const location = useLocation();
 
   const navigationItems: NavigationItem[] = [

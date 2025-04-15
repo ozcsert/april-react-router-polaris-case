@@ -1,3 +1,5 @@
+@use "/node_modules/@shopify/polaris-tokens/dist/scss/styles" as *;
+
 .sideNavbarContainer {
   border-radius: var(--p-border-radius-750);
   display: flex;
