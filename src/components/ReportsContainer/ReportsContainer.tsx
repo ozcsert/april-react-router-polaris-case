@@ -1,10 +1,10 @@
 import { Page, Card, DataTable, TableData } from "@shopify/polaris";
 import { useState } from "react";
 import { useInventory } from "@/hooks/useInventory";
+import SkeletonReportsContainer from "./SkeletonReportsContainer/SkeletonReportsContainer";
 
 const ReportsContainer = () => {
   const [sortedRows, setSortedRows] = useState<TableData[][] | null>(null);
-
   const { inventory, isLoading, isError } = useInventory();
 
   const columnData = [
@@ -63,8 +63,8 @@ const ReportsContainer = () => {
     return ["", "", "", totalQuantity, totalSales];
   };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading inventory</div>;
+  if (isLoading) return <SkeletonReportsContainer />;
+  if (isError) return <SkeletonReportsContainer />;
   if (!inventory) return <div>No inventory data</div>;
 
   return (
