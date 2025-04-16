@@ -1,11 +1,13 @@
+import { Page } from "@shopify/polaris";
 import ReportsContainer from "@/components/ReportsContainer/ReportsContainer";
 import style from "./ReportPage.module.scss";
-// import SkeletonReportsContainer from "@/components/ReportsContainer/SkeletonReportsContainer/SkeletonReportsContainer";
 
 const ReportPage: React.FC = () => {
   return (
     <div className={style.reportPage}>
-      <ReportsContainer />
+      <Page title="Inventory reports" primaryAction={{ content: "Export" }}>
+        <ReportsContainer />
+      </Page>
     </div>
   );
 };

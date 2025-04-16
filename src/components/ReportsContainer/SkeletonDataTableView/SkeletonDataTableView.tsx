@@ -7,7 +7,7 @@ import {
   SkeletonTabs,
 } from "@shopify/polaris";
 
-const SkeletonReportsContainer = () => {
+const SkeletonDataTableView = () => {
   const numberOfSkeletonItemstoRender = 20;
 
   return (
@@ -35,4 +35,4 @@ const SkeletonReportsContainer = () => {
   );
 };
 
-export default SkeletonReportsContainer;
+export default SkeletonDataTableView;
