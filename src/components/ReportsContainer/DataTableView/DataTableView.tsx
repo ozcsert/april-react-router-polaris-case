@@ -3,13 +3,22 @@ import { useState, useEffect } from "react";
 import { useInventory } from "@/hooks/useInventory";
 import SkeletonDataTableView from "@/components/ReportsContainer/SkeletonDataTableView/SkeletonDataTableView";
 import { useLocation } from "react-router-dom";
+import { ProductItem } from "@/constants/type";
 
-const DataTableView = () => {
+interface DataTableViewProps {
+  searchQuery: string;
+}
+
+const DataTableView = ({ searchQuery }: DataTableViewProps) => {
   const [sortedRows, setSortedRows] = useState<TableData[][] | null>(null);
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
+
   const category: string = searchParams.get("category") || "scanners";
+
   const { inventory, isLoading, isError } = useInventory(category);
+  console.log(searchQuery);
 
   useEffect(() => {
     setSortedRows(null);
@@ -31,9 +40,20 @@ const DataTableView = () => {
     "numeric",
   ];
 
+  const filterInventory = (items: ProductItem[], query: string) => {
+    if (!query) return items;
+
+    return items.filter(item =>
+      item.product.toLowerCase().includes(query.toLowerCase())
+    );
+  };
+
   const transformToRows = () => {
     if (!inventory?.items) return [];
-    return inventory.items.map(item => [
+
+    const filteredItems = filterInventory(inventory.items, searchQuery);
+
+    return filteredItems.map(item => [
       item.product,
       item.price,
       item.skuNumber,
