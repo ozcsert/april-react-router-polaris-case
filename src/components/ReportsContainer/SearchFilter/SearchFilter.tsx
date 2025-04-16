@@ -1,5 +1,5 @@
 // components/SearchBar/SearchBar.tsx
-import { Filters } from "@shopify/polaris";
+import { Card, Filters } from "@shopify/polaris";
 
 interface SearchBarProps {
   queryValue: string;
@@ -15,15 +15,18 @@ const SearchBar = ({
   const handleClearAll = () => {};
 
   return (
-    <Filters
-      queryValue={queryValue}
-      queryPlaceholder="Search items"
-      filters={[]}
-      appliedFilters={[]}
-      onQueryChange={onQueryChange}
-      onQueryClear={onQueryClear}
-      onClearAll={handleClearAll}
-    />
+    <Card padding={{ xs: "100", xl: "150" }}>
+      <Filters
+        borderlessQueryField={true}
+        queryValue={queryValue}
+        queryPlaceholder="Search items"
+        filters={[]}
+        appliedFilters={[]}
+        onQueryChange={onQueryChange}
+        onQueryClear={onQueryClear}
+        onClearAll={handleClearAll}
+      />
+    </Card>
   );
 };
 
