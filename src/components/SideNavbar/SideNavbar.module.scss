@@ -1,11 +1,29 @@
 @use "/node_modules/@shopify/polaris-tokens/dist/scss/styles" as *;
+@use "/node_modules/@shopify/polaris-tokens/dist/scss/media-queries" as *;
+
+.hamburgerMenu {
+  border-radius: var(--p-border-radius-750);
+  border: var(--p-color-bg-surface-brand) solid 1px;
+  background-color: var(--p-color-bg-surface);
+  padding: 5px;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  &:hover {
+    scale: 1.2;
+  }
+}
 
 .sideNavbarContainer {
   border-radius: var(--p-border-radius-750);
   display: flex;
   min-width: fit-content;
   overflow: hidden;
-
+  @media #{$p-breakpoints-md-down} {
+    display: none;
+  }
   .navigationContainer {
     display: flex;
     flex-direction: column;
