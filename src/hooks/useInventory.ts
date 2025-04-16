@@ -1,12 +1,12 @@
 import useSWR from "swr";
-import { DataExplorationInventory } from "@/constants/type";
+import { DataExplorationInventory, InventoryCategory } from "@/constants/type";
 import mockData from "../constants/mockData.json";
 
-type CategoryKey = keyof DataExplorationInventory;
+export type CategoryKey = keyof DataExplorationInventory;
 
-const fetcher = async (category: CategoryKey) => {
+const fetcher = async (category: string) => {
   if (category in mockData) {
-    return mockData[category];
+    return mockData[category as keyof typeof mockData] as InventoryCategory;
   }
   throw new Error(`Invalid category: ${category}`);
 };
