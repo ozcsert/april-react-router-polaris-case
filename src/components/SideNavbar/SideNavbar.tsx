@@ -6,6 +6,7 @@ import style from "./SideNavbar.module.scss";
 interface NavigationItem {
   url: string;
   label: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: any;
 }
 
@@ -21,8 +22,8 @@ const SideNavbar: React.FC = () => {
     },
 
     {
-      url: "/dashboard",
-      label: "Dashboard",
+      url: "/report",
+      label: "Report",
       icon: OrderIcon,
     },
   ];
