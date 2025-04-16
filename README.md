@@ -1,8 +1,10 @@
-
-
 # React + TypeScript + Sass + Yarn + Vite 
 
-Check Trello board 
+Live Deploy 
+
+https://react-router-polaris.netlify.app/report
+
+Trello Board 
 
 https://trello.com/b/deqUuKgK/ap-analyzify-react-router-shopify-polaris
 
