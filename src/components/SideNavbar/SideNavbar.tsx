@@ -1,8 +1,15 @@
-import { Navigation, Frame } from "@shopify/polaris";
-import { HomeIcon, OrderIcon } from "@shopify/polaris-icons";
+import { Navigation, Frame, Icon, IconSource } from "@shopify/polaris";
+import {
+  HomeIcon,
+  OrderIcon,
+  MenuIcon as RawMenuIcon,
+} from "@shopify/polaris-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoSpaceCowboy from "@/assets/logo-spaceCowboy.svg";
 import style from "./SideNavbar.module.scss";
+import { useRef } from "react";
+
+const MenuIcon: IconSource = () => <RawMenuIcon />;
 interface NavigationItem {
   url: string;
   label: string;
@@ -13,6 +20,7 @@ interface NavigationItem {
 const SideNavbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const sidebarRef = useRef<HTMLElement>(null);
 
   const navigationItems: NavigationItem[] = [
     {
@@ -38,23 +46,47 @@ const SideNavbar: React.FC = () => {
     onClick: () => handleNavigate(item.url),
   }));
 
+  const handleMenuToggle = () => {
+    if (sidebarRef.current) {
+      const currentDisplay = sidebarRef.current.style.display;
+
+      sidebarRef.current.style.display =
+        currentDisplay === "none" ? "flex" : "none";
+    }
+  };
   return (
-    <aside className={style.sideNavbarContainer}>
-      <Frame>
-        <Navigation location={location.pathname}>
-          <div className={style.navigationContainer}>
-            <div className={style.logoWrapper}>
-              <img
-                src={logoSpaceCowboy}
-                alt="Company Logo"
-                className={style.logo}
-              />
+    <div className={style.navWrapper}>
+      <div className={style.hamburgerContainer}>
+        <button
+          className={style.hamburgerMenu}
+          onClick={() => handleMenuToggle()}
+        >
+          <Icon
+            accessibilityLabel="hamburgerMenuToggle"
+            tone={"interactive"}
+            source={MenuIcon}
+          />
+        </button>
+      </div>
+
+      <aside ref={sidebarRef} className={style.sideNavbarContainer}>
+        <Frame>
+          <Navigation location={location.pathname}>
+            <div className={style.navigationContainer}>
+              <div className={style.logoWrapper}>
+                <img
+                  src={logoSpaceCowboy}
+                  alt="Company Logo"
+                  className={style.logo}
+                />
+              </div>
+
+              <Navigation.Section items={items} />
             </div>
-            <Navigation.Section items={items} />
-          </div>
-        </Navigation>
-      </Frame>
-    </aside>
+          </Navigation>
+        </Frame>
+      </aside>
+    </div>
   );
 };
 

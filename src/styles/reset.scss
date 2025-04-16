@@ -7,6 +7,8 @@
   margin: 0;
 }
 
+$mobile-breakpoint: 380px;
+
 html,
 body {
   max-width: 100vw;
@@ -17,7 +19,7 @@ body {
   color: var(--p-color-text);
   background-color: var(--p-color-bg);
 
-  @media #{$p-breakpoints-sm-down} {
+  @media (max-width: $mobile-breakpoint) {
     * {
       display: none !important;
     }
