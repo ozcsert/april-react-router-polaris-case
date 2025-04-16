@@ -14,32 +14,20 @@ const TabsComponent = () => {
   const tabs: TabProps[] = [
     {
       id: "tab1",
-
       content: "Title",
-
       accessibilityLabel: "Title",
-
       panelID: "panel1",
     },
-
     {
       id: "tab2",
-
       content: "Title",
-
       accessibilityLabel: "Title",
-
       panelID: "panel2",
     },
   ];
 
   return (
-    <Tabs
-      tabs={tabs}
-      selected={selected}
-      onSelect={handleTabChange}
-      fitted // This makes tabs take full width
-    />
+    <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange} fitted />
   );
 };
 

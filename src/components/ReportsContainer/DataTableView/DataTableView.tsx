@@ -1,11 +1,13 @@
 import { Card, DataTable, TableData } from "@shopify/polaris";
 import { useState } from "react";
-import { useInventory } from "@/hooks/useInventory";
-import SkeletonDataTableView from "@/components/ReportsContainer/SkeletonDataTableView/SkeletonDataTableView";
+import { DataExplorationInventory } from "@/constants/type"; // Make sure to import your type
 
-const DataTableView = () => {
+interface DataTableViewProps {
+  inventory: DataExplorationInventory;
+}
+
+const DataTableView = ({ inventory }: DataTableViewProps) => {
   const [sortedRows, setSortedRows] = useState<TableData[][] | null>(null);
-  const { inventory, isLoading, isError } = useInventory();
 
   const columnData = [
     "Product",
@@ -62,10 +64,6 @@ const DataTableView = () => {
     const totalSales = inventory.scanners.totalSales;
     return ["", "", "", totalQuantity, totalSales];
   };
-
-  if (isLoading) return <SkeletonDataTableView />;
-  if (isError) return <SkeletonDataTableView />;
-  if (!inventory) return <div>No inventory data</div>;
 
   return (
     <Card>
