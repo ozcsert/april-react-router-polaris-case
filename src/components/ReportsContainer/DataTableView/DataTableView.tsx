@@ -1,16 +1,24 @@
-import { Card, DataTable, TableData, Filters } from "@shopify/polaris";
+import { Card, DataTable, TableData } from "@shopify/polaris";
 import { useState, useEffect } from "react";
 import { useInventory } from "@/hooks/useInventory";
 import SkeletonDataTableView from "@/components/ReportsContainer/SkeletonDataTableView/SkeletonDataTableView";
 import { useLocation } from "react-router-dom";
+import { ProductItem } from "@/constants/type";
 
-const DataTableView = () => {
+interface DataTableViewProps {
+  searchQuery: string;
+}
+
+const DataTableView = ({ searchQuery }: DataTableViewProps) => {
   const [sortedRows, setSortedRows] = useState<TableData[][] | null>(null);
-  const [queryValue, setQueryValue] = useState("");
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
+
   const category: string = searchParams.get("category") || "scanners";
+
   const { inventory, isLoading, isError } = useInventory(category);
+  console.log(searchQuery);
 
   useEffect(() => {
     setSortedRows(null);
@@ -32,30 +40,24 @@ const DataTableView = () => {
     "numeric",
   ];
 
-  const filterInventory = (items: any[], searchQuery: string) => {
-    if (!searchQuery) return items;
+  const filterInventory = (items: ProductItem[], query: string) => {
+    if (!query) return items;
 
     return items.filter(item =>
-      item.product.toLowerCase().includes(searchQuery.toLowerCase())
+      item.product.toLowerCase().includes(query.toLowerCase())
     );
   };
 
   const transformToRows = () => {
     if (!inventory?.items) return [];
 
-    // Apply filter before transforming to rows
-
-    const filteredItems = filterInventory(inventory.items, queryValue);
+    const filteredItems = filterInventory(inventory.items, searchQuery);
 
     return filteredItems.map(item => [
       item.product,
-
       item.price,
-
       item.skuNumber,
-
       item.netQuantity,
-
       item.netSales,
     ]);
   };
@@ -94,21 +96,8 @@ const DataTableView = () => {
   if (isError) return <SkeletonDataTableView />;
   if (!inventory) return <div>No inventory data</div>;
 
-  const handleFiltersQueryChange = (value: string) => setQueryValue(value);
-
-  const handleQueryValueRemove = () => setQueryValue("");
-
   return (
     <Card>
-      <Filters
-        queryValue={queryValue}
-        queryPlaceholder="Search items"
-        filters={[]}
-        appliedFilters={[]}
-        onQueryChange={handleFiltersQueryChange}
-        onQueryClear={handleQueryValueRemove}
-      />
-
       <DataTable
         columnContentTypes={columnContentTypes}
         headings={columnData}
