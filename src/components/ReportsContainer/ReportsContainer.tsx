@@ -7,7 +7,6 @@ import TabsComponent from "./Tabs/Tabs";
 
 const ReportsContainer = () => {
   const { inventory, isLoading, isError } = useInventory("scanners");
-  console.log("inventory", inventory);
   if (isLoading) return <SkeletonDataTableView />;
   if (isError) return <SkeletonDataTableView />;
   if (!inventory) return <div>No inventory data</div>;
