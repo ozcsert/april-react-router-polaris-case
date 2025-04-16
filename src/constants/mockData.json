@@ -1,0 +1,306 @@
+{
+  "scanners": {
+    "items": [
+      {
+        "product": "Quantum Terrain Scanner",
+        "price": "$1,200.00",
+        "skuNumber": 301001,
+        "netQuantity": 75,
+        "netSales": "$90,000.00"
+      },
+      {
+        "product": "Deep-Space Signal Tracker",
+        "price": "$950.00",
+        "skuNumber": 301002,
+        "netQuantity": 50,
+        "netSales": "$47,500.00"
+      },
+      {
+        "product": "Subsurface Imaging Probe",
+        "price": "$1,450.00",
+        "skuNumber": 301003,
+        "netQuantity": 40,
+        "netSales": "$58,000.00"
+      },
+      {
+        "product": "Atmospheric Spectrum Analyzer",
+        "price": "$1,100.00",
+        "skuNumber": 301004,
+        "netQuantity": 60,
+        "netSales": "$66,000.00"
+      },
+      {
+        "product": "Geothermal Pulse Mapper",
+        "price": "$875.00",
+        "skuNumber": 301005,
+        "netQuantity": 30,
+        "netSales": "$26,250.00"
+      },
+      {
+        "product": "Cryo-Scanner Array",
+        "price": "$990.00",
+        "skuNumber": 301006,
+        "netQuantity": 55,
+        "netSales": "$54,450.00"
+      },
+      {
+        "product": "Neutrino Echo Reader",
+        "price": "$1,300.00",
+        "skuNumber": 301007,
+        "netQuantity": 22,
+        "netSales": "$28,600.00"
+      },
+      {
+        "product": "Anomaly Detector X",
+        "price": "$2,000.00",
+        "skuNumber": 301008,
+        "netQuantity": 10,
+        "netSales": "$20,000.00"
+      },
+      {
+        "product": "OmniPlanetary Scanner",
+        "price": "$1,750.00",
+        "skuNumber": 301009,
+        "netQuantity": 18,
+        "netSales": "$31,500.00"
+      },
+      {
+        "product": "Spectral Phase Locator",
+        "price": "$1,600.00",
+        "skuNumber": 301010,
+        "netQuantity": 25,
+        "netSales": "$40,000.00"
+      }
+    ],
+    "totalQuantity": 385,
+    "totalSales": "$462,300.00"
+  },
+  "craft": {
+    "items": [
+      {
+        "product": "Ranger Mk-II Exocraft",
+        "price": "$12,500.00",
+        "skuNumber": 402001,
+        "netQuantity": 10,
+        "netSales": "$125,000.00"
+      },
+      {
+        "product": "Stellar Scout Pod",
+        "price": "$9,800.00",
+        "skuNumber": 402002,
+        "netQuantity": 8,
+        "netSales": "$78,400.00"
+      },
+      {
+        "product": "Vulcan Heavy Rover",
+        "price": "$15,600.00",
+        "skuNumber": 402003,
+        "netQuantity": 6,
+        "netSales": "$93,600.00"
+      },
+      {
+        "product": "Phoenix Glider",
+        "price": "$7,500.00",
+        "skuNumber": 402004,
+        "netQuantity": 12,
+        "netSales": "$90,000.00"
+      },
+      {
+        "product": "Aurora Subterranean Crawler",
+        "price": "$18,000.00",
+        "skuNumber": 402005,
+        "netQuantity": 4,
+        "netSales": "$72,000.00"
+      },
+      {
+        "product": "Ion Speeder",
+        "price": "$6,900.00",
+        "skuNumber": 402006,
+        "netQuantity": 15,
+        "netSales": "$103,500.00"
+      },
+      {
+        "product": "Void Hopper EX",
+        "price": "$11,200.00",
+        "skuNumber": 402007,
+        "netQuantity": 5,
+        "netSales": "$56,000.00"
+      },
+      {
+        "product": "Meteor Skiff",
+        "price": "$8,750.00",
+        "skuNumber": 402008,
+        "netQuantity": 7,
+        "netSales": "$61,250.00"
+      },
+      {
+        "product": "CryoCruiser",
+        "price": "$10,000.00",
+        "skuNumber": 402009,
+        "netQuantity": 3,
+        "netSales": "$30,000.00"
+      },
+      {
+        "product": "Trailblazer Ultra",
+        "price": "$13,300.00",
+        "skuNumber": 402010,
+        "netQuantity": 9,
+        "netSales": "$119,700.00"
+      }
+    ],
+    "totalQuantity": 79,
+    "totalSales": "$829,450.00"
+  },
+  "lasers": {
+    "items": [
+      {
+        "product": "X-45 Mining Laser",
+        "price": "$3,200.00",
+        "skuNumber": 503001,
+        "netQuantity": 30,
+        "netSales": "$96,000.00"
+      },
+      {
+        "product": "Plasma Pulse Excavator",
+        "price": "$4,500.00",
+        "skuNumber": 503002,
+        "netQuantity": 20,
+        "netSales": "$90,000.00"
+      },
+      {
+        "product": "Crystal Resonance Beam",
+        "price": "$2,750.00",
+        "skuNumber": 503003,
+        "netQuantity": 40,
+        "netSales": "$110,000.00"
+      },
+      {
+        "product": "Thermal Drilling Module",
+        "price": "$3,850.00",
+        "skuNumber": 503004,
+        "netQuantity": 28,
+        "netSales": "$107,800.00"
+      },
+      {
+        "product": "Phase Cutter",
+        "price": "$2,200.00",
+        "skuNumber": 503005,
+        "netQuantity": 35,
+        "netSales": "$77,000.00"
+      },
+      {
+        "product": "Molecular Disruptor",
+        "price": "$5,500.00",
+        "skuNumber": 503006,
+        "netQuantity": 10,
+        "netSales": "$55,000.00"
+      },
+      {
+        "product": "Gamma Core Laser",
+        "price": "$3,300.00",
+        "skuNumber": 503007,
+        "netQuantity": 25,
+        "netSales": "$82,500.00"
+      },
+      {
+        "product": "Litho Beam Array",
+        "price": "$4,100.00",
+        "skuNumber": 503008,
+        "netQuantity": 18,
+        "netSales": "$73,800.00"
+      },
+      {
+        "product": "Tectonic Pulse Cannon",
+        "price": "$6,000.00",
+        "skuNumber": 503009,
+        "netQuantity": 8,
+        "netSales": "$48,000.00"
+      },
+      {
+        "product": "Ore Piercer XR",
+        "price": "$2,900.00",
+        "skuNumber": 503010,
+        "netQuantity": 30,
+        "netSales": "$87,000.00"
+      }
+    ],
+    "totalQuantity": 244,
+    "totalSales": "$827,600.00"
+  },
+  "bionicFocus": {
+    "items": [
+      {
+        "product": "Neural Sync Interface",
+        "price": "$2,850.00",
+        "skuNumber": 604001,
+        "netQuantity": 40,
+        "netSales": "$114,000.00"
+      },
+      {
+        "product": "Bio-Optic Enhancer",
+        "price": "$1,600.00",
+        "skuNumber": 604002,
+        "netQuantity": 60,
+        "netSales": "$96,000.00"
+      },
+      {
+        "product": "Cerebral Amplifier Node",
+        "price": "$3,200.00",
+        "skuNumber": 604003,
+        "netQuantity": 25,
+        "netSales": "$80,000.00"
+      },
+      {
+        "product": "Synaptic Booster Lens",
+        "price": "$1,950.00",
+        "skuNumber": 604004,
+        "netQuantity": 50,
+        "netSales": "$97,500.00"
+      },
+      {
+        "product": "OptoNeuro Fusion Chip",
+        "price": "$2,400.00",
+        "skuNumber": 604005,
+        "netQuantity": 35,
+        "netSales": "$84,000.00"
+      },
+      {
+        "product": "NanoFocus Control Relay",
+        "price": "$3,500.00",
+        "skuNumber": 604006,
+        "netQuantity": 20,
+        "netSales": "$70,000.00"
+      },
+      {
+        "product": "Vision Thread Mapper",
+        "price": "$2,100.00",
+        "skuNumber": 604007,
+        "netQuantity": 45,
+        "netSales": "$94,500.00"
+      },
+      {
+        "product": "BioCortex Interface Pad",
+        "price": "$1,800.00",
+        "skuNumber": 604008,
+        "netQuantity": 30,
+        "netSales": "$54,000.00"
+      },
+      {
+        "product": "Memory Loop Matrix",
+        "price": "$2,950.00",
+        "skuNumber": 604009,
+        "netQuantity": 22,
+        "netSales": "$64,900.00"
+      },
+      {
+        "product": "Quantum Eye Relay",
+        "price": "$3,800.00",
+        "skuNumber": 604010,
+        "netQuantity": 12,
+        "netSales": "$45,600.00"
+      }
+    ],
+    "totalQuantity": 339,
+    "totalSales": "$800,500.00"
+  }
+}
