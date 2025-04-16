@@ -1,10 +1,15 @@
-import { Navigation, Frame, Icon } from "@shopify/polaris";
-import { HomeIcon, OrderIcon } from "@shopify/polaris-icons";
+import { Navigation, Frame, Icon, IconSource } from "@shopify/polaris";
+import {
+  HomeIcon,
+  OrderIcon,
+  MenuIcon as RawMenuIcon,
+} from "@shopify/polaris-icons";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoSpaceCowboy from "@/assets/logo-spaceCowboy.svg";
 import style from "./SideNavbar.module.scss";
-import { MenuIcon } from "@shopify/polaris-icons";
+import { useRef } from "react";
 
+const MenuIcon: IconSource = () => <RawMenuIcon />;
 interface NavigationItem {
   url: string;
   label: string;
@@ -15,6 +20,7 @@ interface NavigationItem {
 const SideNavbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const sidebarRef = useRef<HTMLElement>(null);
 
   const navigationItems: NavigationItem[] = [
     {
@@ -41,18 +47,28 @@ const SideNavbar: React.FC = () => {
   }));
 
   const handleMenuToggle = () => {
-    console.log("Menu toggled");
+    if (sidebarRef.current) {
+      const currentDisplay = sidebarRef.current.style.display;
+      sidebarRef.current.style.display =
+        currentDisplay === "none" ? "block" : "none";
+    }
   };
-
   return (
-    <>
-      <button
-        className={style.hamburgerMenu}
-        onClick={() => handleMenuToggle()}
-      >
-        <Icon accessibilityLabel="hamburgerMenuToggle" source={MenuIcon} />
-      </button>
-      <aside className={style.sideNavbarContainer}>
+    <div className={style.navWrapper}>
+      <div className={style.hamburgerContainer}>
+        <button
+          className={style.hamburgerMenu}
+          onClick={() => handleMenuToggle()}
+        >
+          <Icon
+            accessibilityLabel="hamburgerMenuToggle"
+            tone={"interactive"}
+            source={MenuIcon}
+          />
+        </button>
+      </div>
+
+      <aside ref={sidebarRef} className={style.sideNavbarContainer}>
         <Frame>
           <Navigation location={location.pathname}>
             <div className={style.navigationContainer}>
@@ -63,12 +79,13 @@ const SideNavbar: React.FC = () => {
                   className={style.logo}
                 />
               </div>
+
               <Navigation.Section items={items} />
             </div>
           </Navigation>
         </Frame>
       </aside>
-    </>
+    </div>
   );
 };
 
