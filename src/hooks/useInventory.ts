@@ -11,7 +11,7 @@ const fetcher = async (category: string) => {
   throw new Error(`Invalid category: ${category}`);
 };
 
-export const useInventory = (category?: CategoryKey) => {
+export const useInventory = (category?: string) => {
   const { data, error, isLoading } = useSWR(
     category ? `inventory-${category}` : null,
     () => fetcher(category!)
