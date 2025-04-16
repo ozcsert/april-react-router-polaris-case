@@ -15,7 +15,7 @@ const SearchBar = ({
   const handleClearAll = () => {};
 
   return (
-    <Card padding={{ xs: "100", xl: "150" }}>
+    <Card padding={{ xs: "100", xl: "100" }}>
       <Filters
         borderlessQueryField={true}
         queryValue={queryValue}
