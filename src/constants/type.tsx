@@ -1,11 +1,11 @@
 export type DataExplorationInventory = {
   scanners: InventoryCategory;
-  craft: InventoryCategory;
+  crafts: InventoryCategory;
   lasers: InventoryCategory;
   bionicFocus: InventoryCategory;
 };
 
-type ProductItem = {
+export type ProductItem = {
   product: string;
   price: string;
   skuNumber: number;
@@ -13,7 +13,7 @@ type ProductItem = {
   netSales: string;
 };
 
-type InventoryCategory = {
+export type InventoryCategory = {
   items: ProductItem[];
   totalQuantity: number;
   totalSales: string;

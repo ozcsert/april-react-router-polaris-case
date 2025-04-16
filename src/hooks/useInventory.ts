@@ -1,21 +1,26 @@
 import useSWR from "swr";
 import { DataExplorationInventory } from "@/constants/type";
-
 import mockData from "../constants/mockData.json";
 
-const fetcher = async (): Promise<DataExplorationInventory> => {
-  return mockData;
+type CategoryKey = keyof DataExplorationInventory;
+
+const fetcher = async (category: CategoryKey) => {
+  if (category in mockData) {
+    return mockData[category];
+  }
+  throw new Error(`Invalid category: ${category}`);
 };
 
-export const useInventory = () => {
-  const { data, error, isLoading } = useSWR<DataExplorationInventory>(
-    "inventory-key",
-    fetcher
+export const useInventory = (category?: CategoryKey) => {
+  const { data, error, isLoading } = useSWR(
+    category ? `inventory-${category}` : null,
+    () => fetcher(category!)
   );
 
   return {
     inventory: data,
     isLoading,
     isError: error,
+    category,
   };
 };
