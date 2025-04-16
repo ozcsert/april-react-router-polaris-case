@@ -2,7 +2,7 @@
 
 Live Deploy 
 
-https://react-router-polaris.netlify.app/report
+https://react-router-polaris.netlify.app
 
 Trello Board 
 
@@ -16,16 +16,15 @@ To launch this project,
 
 2. install yarn globally  with the command
 
-    npm install --global yarn
+    `npm install --global yarn`
 
 
 3. install packages with the command
 
-    yarn
+    `yarn`
 
 4. Run server with the command 
 
-   yarn dev 
+   `yarn dev` 
 
 
-```
