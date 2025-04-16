@@ -1,15 +1,19 @@
 import { Card, DataTable, TableData } from "@shopify/polaris";
+import { useState, useEffect } from "react";
+import { useInventory } from "@/hooks/useInventory";
+import SkeletonDataTableView from "@/components/ReportsContainer/SkeletonDataTableView/SkeletonDataTableView";
+import { useLocation } from "react-router-dom";
 
-import { useState } from "react";
-
-import { InventoryCategory } from "@/constants/type";
-
-interface DataTableViewProps {
-  inventory: InventoryCategory;
-}
-
-const DataTableView = ({ inventory }: DataTableViewProps) => {
+const DataTableView = () => {
   const [sortedRows, setSortedRows] = useState<TableData[][] | null>(null);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const category: string = searchParams.get("category") || "scanners";
+  const { inventory, isLoading, isError } = useInventory(category);
+
+  useEffect(() => {
+    setSortedRows(null);
+  }, [inventory]);
 
   const columnData = [
     "Product",
@@ -67,6 +71,10 @@ const DataTableView = ({ inventory }: DataTableViewProps) => {
 
     return ["", "", "", inventory.totalQuantity, inventory.totalSales];
   };
+
+  if (isLoading) return <SkeletonDataTableView />;
+  if (isError) return <SkeletonDataTableView />;
+  if (!inventory) return <div>No inventory data</div>;
 
   return (
     <Card>
