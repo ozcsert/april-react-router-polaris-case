@@ -49,8 +49,9 @@ const SideNavbar: React.FC = () => {
   const handleMenuToggle = () => {
     if (sidebarRef.current) {
       const currentDisplay = sidebarRef.current.style.display;
+
       sidebarRef.current.style.display =
-        currentDisplay === "none" ? "block" : "none";
+        currentDisplay === "none" ? "flex" : "none";
     }
   };
   return (

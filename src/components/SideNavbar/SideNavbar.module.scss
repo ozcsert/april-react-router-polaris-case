@@ -2,11 +2,6 @@
 @use "/node_modules/@shopify/polaris-tokens/dist/scss/media-queries" as *;
 
 .navWrapper {
-  border-radius: var(--p-border-radius-750);
-  overflow: hidden;
-  min-width: fit-content;
-  border: var(--p-color-bg-surface-brand) solid 1px;
-
   @media #{$p-breakpoints-md-down} {
     position: absolute;
     top: 0;
@@ -31,14 +26,18 @@
   }
 
   .sideNavbarContainer {
-    display: flex;
+    display: none;
+    border-radius: var(--p-border-radius-750);
+    overflow: hidden;
+    min-width: fit-content;
+    border: var(--p-color-bg-surface-brand) solid 1px;
 
-    @media #{$p-breakpoints-md-down} {
-      position: absolute;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      display: none;
+    @media #{$p-breakpoints-md-up} {
+      position: unset;
+      z-index: unset;
+      display: flex;
     }
+
     .navigationContainer {
       display: flex;
       flex-direction: column;
